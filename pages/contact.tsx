@@ -62,13 +62,13 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-neutral-900 mb-1">Email</p>
-                      <a href="mailto:harisync.connect@gmail.com" className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors">
-                        harisync.connect@gmail.com
+                      <a href="mailto:info@harisync.tech" className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors">
+                        info@harisync.tech
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
+                  {/* <div className="flex items-start gap-4">
                     <div className="w-10 h-10 bg-neutral-100 rounded-sm flex items-center justify-center shrink-0">
                       <Phone size={18} className="text-neutral-600" />
                     </div>
@@ -78,7 +78,7 @@ export default function Contact() {
                         +92 305 888 4771
                       </a>
                     </div>
-                  </div>
+                   </div> */}
 
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 bg-neutral-100 rounded-sm flex items-center justify-center shrink-0">
@@ -139,7 +139,7 @@ export default function Contact() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                       <div>
                         <label className="text-[11px] font-mono text-neutral-500 uppercase tracking-widest block mb-2">
-                          Your Name
+                          your Name
                         </label>
                         <input
                           type="text"
@@ -148,7 +148,7 @@ export default function Contact() {
                           onChange={handleChange}
                           required
                           className="w-full bg-neutral-50 border border-neutral-200 px-4 py-3.5 text-sm text-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900 focus:border-neutral-900 transition-colors"
-                          placeholder="John Doe"
+                          placeholder="Your Name here"
                         />
                       </div>
                       <div>
@@ -162,7 +162,7 @@ export default function Contact() {
                           onChange={handleChange}
                           required
                           className="w-full bg-neutral-50 border border-neutral-200 px-4 py-3.5 text-sm text-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900 focus:border-neutral-900 transition-colors"
-                          placeholder="john@company.com"
+                          placeholder="your email here"
                         />
                       </div>
                     </div>

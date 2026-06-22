@@ -39,8 +39,8 @@ export default function Footer() {
               We build custom software, intelligent bots, and digital marketing solutions that help businesses grow and scale.
             </p>
             <div className="space-y-1.5 text-sm text-neutral-500">
-              <a href="mailto:harisync.connect@gmail.com" className="block hover:text-white transition-colors">harisync.connect@gmail.com</a>
-              <a href="tel:+923058884771" className="block hover:text-white transition-colors">+92 305 888 4771</a>
+              <a href="mailto:info@harisync.tech" className="block hover:text-white transition-colors">info@harisync.tech</a>
+              {/* <a href="tel:+923058884771" className="block hover:text-white transition-colors">+92 305 888 4771</a> */}
             </div>
             <div className="flex items-center gap-4 mt-6">
               <a
