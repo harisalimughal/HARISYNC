@@ -10,7 +10,13 @@
       "WebFetch(domain:www.pexels.com)",
       "WebFetch(domain:pixabay.com)",
       "WebFetch(domain:videos.pexels.com)",
-      "WebFetch(domain:unsplash.com)"
+      "WebFetch(domain:unsplash.com)",
+      "Bash(npm install *)",
+      "Bash(npm list *)",
+      "Bash(echo \"legacy-peer-deps=true\" > .npmrc)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\fc\\Downloads\\harisync"
     ]
   }
 }
