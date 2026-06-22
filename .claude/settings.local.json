@@ -13,7 +13,10 @@
       "WebFetch(domain:unsplash.com)",
       "Bash(npm install *)",
       "Bash(npm list *)",
-      "Bash(echo \"legacy-peer-deps=true\" > .npmrc)"
+      "Bash(echo \"legacy-peer-deps=true\" > .npmrc)",
+      "WebFetch(domain:cobe.vercel.app)",
+      "WebFetch(domain:github.com)",
+      "Bash(npx tsc *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\fc\\Downloads\\harisync"

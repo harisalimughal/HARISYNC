@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  ArrowRight, ArrowUpRight, Search, Globe, Plus, Sparkles, Layout, 
+import {
+  ArrowRight, ArrowUpRight, Search, Globe as GlobeIcon, Plus, Sparkles, Layout,
   ShoppingBag, Settings, Menu, X, ChevronRight, ChevronDown, Check,
   Monitor, Smartphone, Play, Palette, DollarSign, Calendar, Sliders,
   BarChart2, RefreshCw, ShoppingCart, User, Users, Lock, ChevronLeft, CreditCard, Star
 } from 'lucide-react';
+import GlobeSection from './components/Globe';
 
 // --- DATA DEFINITIONS & STATIC ASSETS ---
 
@@ -687,7 +688,7 @@ export default function App() {
                   {/* Web Frame Header Bar */}
                   <div className="bg-neutral-100 px-4 py-2 border-b border-neutral-200 flex items-center justify-between">
                     <div className="flex items-center gap-1.5 text-neutral-400 font-mono text-[10px]">
-                      <Globe size={11} />
+                      <GlobeIcon size={11} />
                       <span className="truncate max-w-[200px]">https://www.{selectedTemplate.name.toLowerCase()}.harisync.com</span>
                     </div>
                     <span className="text-[10px] font-mono text-neutral-400 bg-neutral-200 px-2 py-0.5 rounded uppercase">Built with 7.1</span>
@@ -832,7 +833,7 @@ export default function App() {
           {/* Interactive domain search input form */}
           <div className="bg-neutral-900 border border-neutral-800 p-2.5 rounded-none flex items-center max-w-2xl mx-auto mb-8 shadow-2xl">
             <div className="pl-3.5 text-neutral-500">
-              <Globe size={18} />
+              <GlobeIcon size={18} />
             </div>
             <input
               type="text"
@@ -874,7 +875,7 @@ export default function App() {
                       className="flex items-center justify-between p-3.5 hover:bg-white/5 rounded-lg border border-transparent hover:border-neutral-800 transition-all group"
                     >
                       <div className="flex items-center gap-3">
-                        <Globe size={15} className="text-neutral-500" />
+                        <GlobeIcon size={15} className="text-neutral-500" />
                         <div>
                           <p className="text-sm font-semibold text-white tracking-wide">{dm.domain}</p>
                           <span className={`text-[9px] font-mono font-bold px-1.5 py-0.5 rounded mt-1 inline-block ${extDetails.color}`}>
@@ -1184,6 +1185,9 @@ export default function App() {
 
         </div>
       </section>
+
+      {/* --- GLOBAL PRESENCE INTERACTIVE GLOBE --- */}
+      <GlobeSection />
 
       {/* --- SECTION 5: SQUARESPACE AI BLUEPRINT GENERATOR --- */}
       <section id="ai-builder" className="py-20 lg:py-28 bg-[#fafaf9] border-b border-neutral-200/50">

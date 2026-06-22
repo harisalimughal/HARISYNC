@@ -1,7 +1,10 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { Target, Lightbulb, Users, ArrowRight, ArrowUpRight, Mail } from 'lucide-react';
 import AnimateOnScroll from '../src/components/AnimateOnScroll';
+
+const Globe = dynamic(() => import('../src/components/Globe'), { ssr: false });
 
 const VALUES = [
   {
@@ -119,17 +122,66 @@ export default function About() {
                 href="mailto:harisalimughal077@gmail.com"
                 className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-neutral-900 hover:text-neutral-600 transition-colors underline underline-offset-4"
               >
-                Contact the CEO directly <ArrowUpRight size={16} />
+                Contact our CEO directly <ArrowUpRight size={16} />
               </a>
             </AnimateOnScroll>
 
             <AnimateOnScroll>
-              <div className="aspect-[4/5] overflow-hidden bg-neutral-900 rounded-2xl flex items-center justify-center">
+              <div className="overflow-hidden rounded-2xl bg-white shadow-sm max-w-[420px] mx-auto lg:mx-0 lg:ml-auto">
                 <img
-                  src="/logo.png"
-                  alt="HARISYNC"
-                  className="w-32 h-32 object-contain"
+                  src="/ceo-haris.jpeg"
+                  alt="Haris Ali Mughal — CEO & Founder"
+                  className="w-full h-auto object-contain object-center"
                 />
+              </div>
+            </AnimateOnScroll>
+          </div>
+        </div>
+      </section>
+
+      {/* Global Presence */}
+      <section className="py-20 lg:py-28 bg-neutral-950 text-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <AnimateOnScroll>
+              <Globe />
+            </AnimateOnScroll>
+
+            <AnimateOnScroll delay={0.2}>
+              <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-[0.3em] block mb-4">
+                Global Presence
+              </span>
+              <h2 className="font-serif text-3xl md:text-5xl tracking-tight mb-6">
+                Delivered worldwide.
+              </h2>
+              <p className="text-neutral-400 text-base font-light leading-relaxed mb-10">
+                From our headquarters in Pakistan, we serve businesses across the globe — building software, bots, and digital solutions that drive real results.
+              </p>
+
+              <div className="space-y-8">
+                <div className="flex items-start gap-5">
+                  <span className="font-serif text-4xl font-light text-white">20+</span>
+                  <div>
+                    <p className="text-white font-semibold text-sm">Projects Delivered</p>
+                    <p className="text-neutral-500 text-sm">Across web, mobile, bots, and AI solutions</p>
+                  </div>
+                </div>
+                <div className="border-t border-neutral-800" />
+                <div className="flex items-start gap-5">
+                  <span className="font-serif text-4xl font-light text-white">5+</span>
+                  <div>
+                    <p className="text-white font-semibold text-sm">Countries Served</p>
+                    <p className="text-neutral-500 text-sm">Pakistan, US, UK, Morocco, Australia</p>
+                  </div>
+                </div>
+                <div className="border-t border-neutral-800" />
+                <div className="flex items-start gap-5">
+                  <span className="font-serif text-4xl font-light text-white">100%</span>
+                  <div>
+                    <p className="text-white font-semibold text-sm">Client Satisfaction</p>
+                    <p className="text-neutral-500 text-sm">Every project delivered on time and beyond expectations</p>
+                  </div>
+                </div>
               </div>
             </AnimateOnScroll>
           </div>

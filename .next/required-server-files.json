@@ -104,7 +104,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "C:\\Users\\fc\\Downloads\\harisync",
+    "outputFileTracingRoot": "c:\\Users\\fc\\Downloads\\harisync",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -304,11 +304,11 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.js",
     "turbopack": {
-      "root": "C:\\Users\\fc\\Downloads\\harisync"
+      "root": "c:\\Users\\fc\\Downloads\\harisync"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "C:\\Users\\fc\\Downloads\\harisync",
+  "appDir": "c:\\Users\\fc\\Downloads\\harisync",
   "relativeAppDir": "",
   "files": [
     ".next\\package.json",
