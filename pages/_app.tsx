@@ -11,7 +11,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       <Navbar />
-      <main>
+      <main className="overflow-x-clip">
         <Component {...pageProps} />
       </main>
       <Footer />

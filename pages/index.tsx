@@ -741,7 +741,7 @@ export default function Home() {
       </Head>
 
       {/* ===== HERO SECTION — Video + Overlapping Project Showcase ===== */}
-      <section className="relative bg-black text-white" style={{ zIndex: 2 }}>
+      <section className="relative bg-black text-white overflow-x-clip" style={{ zIndex: 2 }}>
         {/* Video background */}
         <div className="absolute inset-0 z-0">
           <video
