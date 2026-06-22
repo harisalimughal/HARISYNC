@@ -1,0 +1,8 @@
+{
+  "name": "HARISYNC",
+  "description": "An exquisite premium digital suite featuring the interactive HARISYNC Fluid Engine, high-performance domain search registries, custom AI Blueprint systems, and ultra-high fashion template playgrounds.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

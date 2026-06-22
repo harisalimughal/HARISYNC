@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="500" viewBox="0 0 600 500">
+  <rect width="600" height="500" rx="20" fill="#1a1a2e"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="600" height="60" rx="20" fill="#16213e"/>
+  <rect x="0" y="20" width="600" height="40" fill="#16213e"/>
+  <circle cx="40" cy="30" r="16" fill="#0f3460"/>
+  <text x="42" y="35" font-family="Arial" font-size="16" fill="white" text-anchor="middle">B</text>
+  <text x="70" y="28" font-family="Arial" font-size="14" fill="white" font-weight="bold">HARISYNC Bot</text>
+  <circle cx="70" cy="40" r="4" fill="#4ade80"/>
+  <text x="80" y="44" font-family="Arial" font-size="10" fill="#94a3b8">Online</text>
+
+  <!-- Bot message 1 -->
+  <rect x="30" y="80" width="280" height="45" rx="12" fill="#1e3a5f"/>
+  <text x="45" y="100" font-family="Arial" font-size="13" fill="#e2e8f0">Hi there! How can I help you</text>
+  <text x="45" y="115" font-family="Arial" font-size="13" fill="#e2e8f0">today? 😊</text>
+
+  <!-- User message 1 -->
+  <rect x="280" y="145" width="280" height="35" rx="12" fill="#3b82f6"/>
+  <text x="300" y="167" font-family="Arial" font-size="13" fill="white">How are you?</text>
+
+  <!-- Bot message 2 -->
+  <rect x="30" y="200" width="320" height="60" rx="12" fill="#1e3a5f"/>
+  <text x="45" y="222" font-family="Arial" font-size="13" fill="#e2e8f0">I'm doing great, thank you! 🤖</text>
+  <text x="45" y="240" font-family="Arial" font-size="13" fill="#e2e8f0">I'm here to assist you with anything</text>
+  <text x="45" y="253" font-family="Arial" font-size="13" fill="#e2e8f0">you need.</text>
+
+  <!-- User message 2 -->
+  <rect x="230" y="280" width="330" height="35" rx="12" fill="#3b82f6"/>
+  <text x="250" y="302" font-family="Arial" font-size="13" fill="white">Tell me about your services</text>
+
+  <!-- Bot message 3 -->
+  <rect x="30" y="335" width="350" height="75" rx="12" fill="#1e3a5f"/>
+  <text x="45" y="357" font-family="Arial" font-size="13" fill="#e2e8f0">We offer a range of services! 🚀</text>
+  <text x="45" y="375" font-family="Arial" font-size="13" fill="#e2e8f0">• Web &amp; Mobile Development</text>
+  <text x="45" y="393" font-family="Arial" font-size="13" fill="#e2e8f0">• Chatbot &amp; Voice Bot Solutions</text>
+  <text x="45" y="400" font-family="Arial" font-size="13" fill="#e2e8f0"></text>
+
+  <!-- Input bar -->
+  <rect x="20" y="440" width="560" height="42" rx="21" fill="#16213e" stroke="#334155" stroke-width="1"/>
+  <text x="45" y="465" font-family="Arial" font-size="13" fill="#64748b">Type a message...</text>
+  <circle cx="545" cy="461" r="16" fill="#3b82f6"/>
+  <polygon points="540,455 550,461 540,467" fill="white"/>
+</svg>

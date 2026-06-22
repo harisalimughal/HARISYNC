@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="500" viewBox="0 0 600 500">
+  <!-- Phone frame -->
+  <rect width="600" height="500" rx="20" fill="#0f172a"/>
+
+  <!-- Status bar -->
+  <text x="30" y="25" font-family="Arial" font-size="11" fill="#94a3b8">9:41</text>
+  <circle cx="540" cy="20" r="4" fill="#4ade80"/>
+  <rect x="555" y="16" width="20" height="8" rx="2" fill="#94a3b8"/>
+
+  <!-- Header -->
+  <rect x="0" y="40" width="600" height="55" fill="#1e293b"/>
+  <text x="300" y="72" font-family="Arial" font-size="16" fill="white" text-anchor="middle" font-weight="bold">Voice Assistant</text>
+  <circle cx="40" cy="67" r="12" fill="transparent" stroke="#64748b" stroke-width="1.5"/>
+  <text x="40" y="71" font-family="Arial" font-size="12" fill="#94a3b8" text-anchor="middle">&lt;</text>
+
+  <!-- Waveform visualization area -->
+  <circle cx="300" cy="220" r="90" fill="#1e3a5f" opacity="0.3"/>
+  <circle cx="300" cy="220" r="65" fill="#1e3a5f" opacity="0.5"/>
+  <circle cx="300" cy="220" r="45" fill="#3b82f6" opacity="0.7"/>
+
+  <!-- Mic icon in center -->
+  <rect x="290" y="200" width="20" height="28" rx="10" fill="white"/>
+  <rect x="282" y="218" width="36" height="2" rx="1" fill="none" stroke="white" stroke-width="2"/>
+  <line x1="300" y1="232" x2="300" y2="240" stroke="white" stroke-width="2"/>
+  <line x1="290" y1="240" x2="310" y2="240" stroke="white" stroke-width="2"/>
+
+  <!-- Pulse rings -->
+  <circle cx="300" cy="220" r="100" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
+  <circle cx="300" cy="220" r="115" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- Listening text -->
+  <text x="300" y="290" font-family="Arial" font-size="15" fill="#3b82f6" text-anchor="middle" font-weight="bold">Listening...</text>
+
+  <!-- Transcript area -->
+  <rect x="40" y="320" width="520" height="50" rx="12" fill="#1e293b"/>
+  <text x="60" y="340" font-family="Arial" font-size="12" fill="#94a3b8">You said:</text>
+  <text x="60" y="358" font-family="Arial" font-size="14" fill="#e2e8f0">"Tell me about your web development services"</text>
+
+  <!-- Bot response -->
+  <rect x="40" y="380" width="520" height="55" rx="12" fill="#1e3a5f"/>
+  <text x="60" y="400" font-family="Arial" font-size="12" fill="#60a5fa">Assistant:</text>
+  <text x="60" y="418" font-family="Arial" font-size="13" fill="#e2e8f0">"We build scalable web apps using modern</text>
+  <text x="60" y="433" font-family="Arial" font-size="13" fill="#e2e8f0">frameworks like Next.js and React..."</text>
+
+  <!-- Bottom controls -->
+  <circle cx="220" cy="475" r="18" fill="#1e293b"/>
+  <rect x="213" y="468" width="14" height="14" rx="2" fill="#64748b"/>
+
+  <circle cx="300" cy="475" r="24" fill="#ef4444"/>
+  <rect x="292" y="468" width="6" height="14" rx="1" fill="white"/>
+  <rect x="302" y="468" width="6" height="14" rx="1" fill="white"/>
+
+  <circle cx="380" cy="475" r="18" fill="#1e293b"/>
+  <text x="380" y="480" font-family="Arial" font-size="14" fill="#64748b" text-anchor="middle">⌨</text>
+</svg>

@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="500" viewBox="0 0 600 500">
+  <!-- Background -->
+  <rect width="600" height="500" rx="20" fill="#1a1a2e"/>
+
+  <!-- Grid dots -->
+  <g opacity="0.15">
+    <circle cx="30" cy="30" r="1.5" fill="#64748b"/>
+    <circle cx="70" cy="30" r="1.5" fill="#64748b"/>
+    <circle cx="110" cy="30" r="1.5" fill="#64748b"/>
+    <circle cx="150" cy="30" r="1.5" fill="#64748b"/>
+    <circle cx="190" cy="30" r="1.5" fill="#64748b"/>
+    <circle cx="230" cy="30" r="1.5" fill="#64748b"/>
+    <circle cx="270" cy="30" r="1.5" fill="#64748b"/>
+    <circle cx="310" cy="30" r="1.5" fill="#64748b"/>
+    <circle cx="350" cy="30" r="1.5" fill="#64748b"/>
+    <circle cx="390" cy="30" r="1.5" fill="#64748b"/>
+    <circle cx="430" cy="30" r="1.5" fill="#64748b"/>
+    <circle cx="470" cy="30" r="1.5" fill="#64748b"/>
+    <circle cx="510" cy="30" r="1.5" fill="#64748b"/>
+    <circle cx="550" cy="30" r="1.5" fill="#64748b"/>
+  </g>
+
+  <!-- Header bar -->
+  <rect x="0" y="0" width="600" height="50" rx="20" fill="#16213e"/>
+  <rect x="0" y="20" width="600" height="30" fill="#16213e"/>
+  <text x="30" y="32" font-family="Arial" font-size="14" fill="#e2e8f0" font-weight="bold">Workflow Builder</text>
+  <rect x="480" y="15" width="90" height="28" rx="6" fill="#3b82f6"/>
+  <text x="525" y="33" font-family="Arial" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Execute</text>
+
+  <!-- n8n logo node -->
+  <rect x="30" y="80" width="110" height="50" rx="10" fill="#ea4b71" stroke="#f472b6" stroke-width="1"/>
+  <text x="85" y="100" font-family="Arial" font-size="16" fill="white" text-anchor="middle" font-weight="bold">n8n</text>
+  <text x="85" y="118" font-family="Arial" font-size="9" fill="#fce7f3" text-anchor="middle">Trigger</text>
+
+  <!-- Connection line n8n to Webhook -->
+  <line x1="140" y1="105" x2="190" y2="105" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="190" cy="105" r="4" fill="#3b82f6"/>
+
+  <!-- Webhook node -->
+  <rect x="190" y="80" width="110" height="50" rx="10" fill="#7c3aed" stroke="#a78bfa" stroke-width="1"/>
+  <text x="245" y="100" font-family="Arial" font-size="12" fill="white" text-anchor="middle" font-weight="bold">Webhook</text>
+  <text x="245" y="118" font-family="Arial" font-size="9" fill="#ddd6fe" text-anchor="middle">POST /api</text>
+
+  <!-- Connection line Webhook to IF -->
+  <line x1="300" y1="105" x2="350" y2="105" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="350" cy="105" r="4" fill="#3b82f6"/>
+
+  <!-- IF/Router node -->
+  <rect x="350" y="80" width="100" height="50" rx="10" fill="#f59e0b" stroke="#fbbf24" stroke-width="1"/>
+  <text x="400" y="100" font-family="Arial" font-size="12" fill="white" text-anchor="middle" font-weight="bold">IF</text>
+  <text x="400" y="118" font-family="Arial" font-size="9" fill="#fef3c7" text-anchor="middle">Route</text>
+
+  <!-- Branch lines from IF -->
+  <line x1="450" y1="95" x2="490" y2="75" stroke="#4ade80" stroke-width="2"/>
+  <line x1="450" y1="115" x2="490" y2="195" stroke="#ef4444" stroke-width="2"/>
+  <circle cx="490" cy="75" r="4" fill="#4ade80"/>
+  <circle cx="490" cy="195" r="4" fill="#ef4444"/>
+
+  <!-- True branch - Email node -->
+  <rect x="490" y="55" width="90" height="42" rx="8" fill="#4ade80" stroke="#86efac" stroke-width="1"/>
+  <text x="535" y="75" font-family="Arial" font-size="11" fill="#052e16" text-anchor="middle" font-weight="bold">Email</text>
+  <text x="535" y="89" font-family="Arial" font-size="8" fill="#14532d" text-anchor="middle">Send</text>
+
+  <!-- Make.com section -->
+  <rect x="30" y="170" width="110" height="50" rx="10" fill="#6d28d9" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="85" y="190" font-family="Arial" font-size="14" fill="white" text-anchor="middle" font-weight="bold">Make</text>
+  <text x="85" y="208" font-family="Arial" font-size="9" fill="#ddd6fe" text-anchor="middle">Scenario</text>
+
+  <!-- Connection Make to Google Sheets -->
+  <line x1="140" y1="195" x2="190" y2="195" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="190" cy="195" r="4" fill="#3b82f6"/>
+
+  <!-- Google Sheets node -->
+  <rect x="190" y="170" width="110" height="50" rx="10" fill="#22c55e" stroke="#4ade80" stroke-width="1"/>
+  <text x="245" y="190" font-family="Arial" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Sheets</text>
+  <text x="245" y="208" font-family="Arial" font-size="9" fill="#dcfce7" text-anchor="middle">Read Data</text>
+
+  <!-- Connection Sheets to HTTP -->
+  <line x1="300" y1="195" x2="350" y2="195" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="350" cy="195" r="4" fill="#3b82f6"/>
+
+  <!-- HTTP Request node -->
+  <rect x="350" y="170" width="100" height="50" rx="10" fill="#0ea5e9" stroke="#38bdf8" stroke-width="1"/>
+  <text x="400" y="190" font-family="Arial" font-size="11" fill="white" text-anchor="middle" font-weight="bold">HTTP</text>
+  <text x="400" y="208" font-family="Arial" font-size="9" fill="#e0f2fe" text-anchor="middle">API Call</text>
+
+  <!-- False branch - Slack node -->
+  <rect x="490" y="175" width="90" height="42" rx="8" fill="#ef4444" stroke="#f87171" stroke-width="1"/>
+  <text x="535" y="195" font-family="Arial" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Slack</text>
+  <text x="535" y="209" font-family="Arial" font-size="8" fill="#fee2e2" text-anchor="middle">Notify</text>
+
+  <!-- Connection HTTP to DB -->
+  <line x1="450" y1="195" x2="490" y2="195" stroke="#3b82f6" stroke-width="2"/>
+
+  <!-- Third workflow row -->
+  <rect x="30" y="270" width="110" height="50" rx="10" fill="#ea4b71" stroke="#f472b6" stroke-width="1"/>
+  <text x="85" y="290" font-family="Arial" font-size="16" fill="white" text-anchor="middle" font-weight="bold">n8n</text>
+  <text x="85" y="308" font-family="Arial" font-size="9" fill="#fce7f3" text-anchor="middle">Schedule</text>
+
+  <line x1="140" y1="295" x2="190" y2="295" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="190" cy="295" r="4" fill="#3b82f6"/>
+
+  <!-- CRM node -->
+  <rect x="190" y="270" width="110" height="50" rx="10" fill="#f97316" stroke="#fb923c" stroke-width="1"/>
+  <text x="245" y="290" font-family="Arial" font-size="11" fill="white" text-anchor="middle" font-weight="bold">CRM</text>
+  <text x="245" y="308" font-family="Arial" font-size="9" fill="#ffedd5" text-anchor="middle">Get Leads</text>
+
+  <line x1="300" y1="295" x2="350" y2="295" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="350" cy="295" r="4" fill="#3b82f6"/>
+
+  <!-- WhatsApp node -->
+  <rect x="350" y="270" width="100" height="50" rx="10" fill="#25d366" stroke="#4ade80" stroke-width="1"/>
+  <text x="400" y="290" font-family="Arial" font-size="11" fill="white" text-anchor="middle" font-weight="bold">WhatsApp</text>
+  <text x="400" y="308" font-family="Arial" font-size="9" fill="#dcfce7" text-anchor="middle">Send Msg</text>
+
+  <line x1="450" y1="295" x2="490" y2="295" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="490" cy="295" r="4" fill="#3b82f6"/>
+
+  <!-- Database node -->
+  <rect x="490" y="275" width="90" height="42" rx="8" fill="#6366f1" stroke="#818cf8" stroke-width="1"/>
+  <text x="535" y="295" font-family="Arial" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Database</text>
+  <text x="535" y="309" font-family="Arial" font-size="8" fill="#e0e7ff" text-anchor="middle">Log</text>
+
+  <!-- Status bar at bottom -->
+  <rect x="0" y="350" width="600" height="150" rx="0" fill="#111827"/>
+  <rect x="0" y="480" width="600" height="20" rx="0" fill="#111827"/>
+
+  <!-- Execution log -->
+  <text x="30" y="375" font-family="monospace" font-size="11" fill="#4ade80">✓ Workflow executed successfully</text>
+  <text x="30" y="395" font-family="monospace" font-size="10" fill="#64748b">→ n8n Trigger         0.02s</text>
+  <text x="30" y="412" font-family="monospace" font-size="10" fill="#64748b">→ Webhook received     0.15s</text>
+  <text x="30" y="429" font-family="monospace" font-size="10" fill="#64748b">→ IF condition         0.01s</text>
+  <text x="30" y="446" font-family="monospace" font-size="10" fill="#64748b">→ Email sent           0.34s</text>
+  <text x="30" y="463" font-family="monospace" font-size="10" fill="#4ade80">✓ 5 nodes executed in 0.52s</text>
+
+  <!-- Stats on right -->
+  <rect x="400" y="360" width="170" height="35" rx="8" fill="#1e293b"/>
+  <text x="415" y="375" font-family="Arial" font-size="9" fill="#94a3b8">EXECUTIONS TODAY</text>
+  <text x="415" y="392" font-family="Arial" font-size="16" fill="#4ade80" font-weight="bold">1,247</text>
+
+  <rect x="400" y="405" width="170" height="35" rx="8" fill="#1e293b"/>
+  <text x="415" y="420" font-family="Arial" font-size="9" fill="#94a3b8">SUCCESS RATE</text>
+  <text x="415" y="437" font-family="Arial" font-size="16" fill="#3b82f6" font-weight="bold">99.8%</text>
+
+  <rect x="400" y="450" width="170" height="35" rx="8" fill="#1e293b"/>
+  <text x="415" y="465" font-family="Arial" font-size="9" fill="#94a3b8">TIME SAVED</text>
+  <text x="415" y="482" font-family="Arial" font-size="16" fill="#f59e0b" font-weight="bold">120 hrs/mo</text>
+</svg>
