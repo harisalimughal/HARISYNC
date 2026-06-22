@@ -274,7 +274,7 @@ function ServicesCarousel() {
             transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
           >
             {SERVICES.map((service) => (
-              <div key={service.title} className="flex-shrink-0 w-[calc(25%-15px)]">
+              <div key={service.title} className="flex-shrink-0 w-[calc(85vw-20px)] sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)]">
                 <Link href="/services" className="group block rounded-2xl overflow-hidden relative" style={{ height: '420px' }}>
                   <img
                     src={service.image}
@@ -358,7 +358,7 @@ function GrowTabs({ activeTab, setActiveTab }: { activeTab: number; setActiveTab
   return (
     <div
       ref={containerRef}
-      className="relative flex items-center justify-center gap-2 mt-10 flex-nowrap"
+      className="relative flex items-center md:justify-center gap-2 mt-10 flex-nowrap overflow-x-auto pb-2 px-4 md:px-0 scrollbar-hide"
       onMouseLeave={() => {
         setHovered(null);
         setPillStyle((s) => ({ ...s, opacity: 0 }));
@@ -412,7 +412,7 @@ function GrowSection() {
         <GrowTabs activeTab={activeTab} setActiveTab={setActiveTab} />
       </div>
 
-      <div className="relative" style={{ height: 'clamp(360px, 42vw, 520px)' }}>
+      <div className="relative" style={{ height: 'clamp(240px, 42vw, 520px)' }}>
         <div className="absolute inset-0 overflow-hidden">
           {GROW_CARDS.map((card, index) => {
             let rel = index - activeTab;
@@ -438,18 +438,18 @@ function GrowSection() {
                 transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
                 className="absolute"
                 style={{
-                  width: 'min(65vw, 820px)',
+                  width: 'min(90vw, 820px)',
                   zIndex: isCenter ? 10 : (isLeft || isRight) ? 2 : 0,
                 }}
               >
                 <div className="rounded-2xl overflow-hidden shadow-2xl relative" style={{ aspectRatio: '960/500' }}>
                   <img src={card.bg} alt="" className="absolute inset-0 w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-black/45" />
-                  <div className="relative z-10 p-10 md:p-14 flex flex-col justify-end h-full">
-                    <h3 className="text-white font-serif text-3xl md:text-[40px] font-medium mb-3 leading-tight">{card.title}</h3>
-                    <p className="text-white/80 text-sm md:text-[16px] leading-relaxed max-w-[45%]">{card.description}</p>
+                  <div className="relative z-10 p-5 md:p-14 flex flex-col justify-end h-full">
+                    <h3 className="text-white font-serif text-xl md:text-[40px] font-medium mb-2 md:mb-3 leading-tight">{card.title}</h3>
+                    <p className="text-white/80 text-xs md:text-[16px] leading-relaxed max-w-full md:max-w-[45%]">{card.description}</p>
                   </div>
-                  <div className="absolute bottom-8 right-8 w-[45%] rounded-lg shadow-2xl overflow-hidden border border-white/15">
+                  <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 w-[35%] md:w-[45%] rounded-lg shadow-2xl overflow-hidden border border-white/15 hidden sm:block">
                     <img src={card.mockup} alt="" className="w-full aspect-[4/3] object-cover" />
                   </div>
                 </div>
@@ -460,15 +460,15 @@ function GrowSection() {
 
         <button
           onClick={() => setActiveTab((prev) => (prev - 1 + total) % total)}
-          className="absolute left-4 bottom-6 z-20 w-10 h-10 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-500 hover:border-neutral-900 hover:text-neutral-900 transition-colors bg-white/80 backdrop-blur-sm"
+          className="absolute left-2 md:left-4 bottom-4 md:bottom-6 z-20 w-8 h-8 md:w-10 md:h-10 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-500 hover:border-neutral-900 hover:text-neutral-900 transition-colors bg-white/80 backdrop-blur-sm"
         >
-          <ArrowRight size={18} className="rotate-180" />
+          <ArrowRight size={16} className="rotate-180" />
         </button>
         <button
           onClick={() => setActiveTab((prev) => (prev + 1) % total)}
-          className="absolute right-4 bottom-6 z-20 w-10 h-10 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-500 hover:border-neutral-900 hover:text-neutral-900 transition-colors bg-white/80 backdrop-blur-sm"
+          className="absolute right-2 md:right-4 bottom-4 md:bottom-6 z-20 w-8 h-8 md:w-10 md:h-10 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-500 hover:border-neutral-900 hover:text-neutral-900 transition-colors bg-white/80 backdrop-blur-sm"
         >
-          <ArrowRight size={18} />
+          <ArrowRight size={16} />
         </button>
       </div>
 
@@ -623,7 +623,16 @@ function TestimonialsSection() {
 
 function HeroShowcase() {
   const [current, setCurrent] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const total = HERO_SHOWCASE.length;
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)');
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -638,9 +647,9 @@ function HeroShowcase() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2, delay: 0.8, ease: 'easeOut' }}
       className="relative z-10"
-      style={{ height: 'clamp(340px, 42vw, 540px)', marginBottom: '-80px' }}
+      style={{ height: isMobile ? '200px' : 'clamp(340px, 42vw, 540px)', marginBottom: isMobile ? '-40px' : '-80px' }}
     >
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 flex items-end justify-center">
         {HERO_SHOWCASE.map((card, index) => {
           let rel = index - current;
           if (rel > total / 2) rel -= total;
@@ -650,6 +659,41 @@ function HeroShowcase() {
           const isCenter = rel === 0;
           const isLeft = rel === -1;
           const isRight = rel === 1;
+
+          if (isMobile) {
+            return (
+              <motion.div
+                key={card.title}
+                animate={{
+                  left: '50%',
+                  x: '-50%',
+                  bottom: 0,
+                  scale: 1,
+                  rotate: 0,
+                  opacity: isCenter ? 1 : 0,
+                }}
+                transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+                className="absolute"
+                style={{
+                  width: '88vw',
+                  maxWidth: '400px',
+                  zIndex: isCenter ? 10 : 0,
+                }}
+              >
+                <div className={`${card.dark ? 'bg-neutral-900 border-neutral-700/40' : 'bg-[#f0ece4] border-neutral-300/30'} rounded-xl shadow-2xl overflow-hidden border`}>
+                  <div className={`px-3 py-2 border-b ${card.dark ? 'border-neutral-700/40' : 'border-neutral-300/20'} flex items-center justify-between`}>
+                    <span className={`text-[9px] font-semibold uppercase tracking-wider ${card.dark ? 'text-neutral-400' : 'text-neutral-700'}`}>{card.title}</span>
+                    <div className={`flex gap-2 text-[8px] uppercase tracking-wider ${card.dark ? 'text-neutral-500' : 'text-neutral-400'}`}>
+                      {card.navItems.map((item) => <span key={item}>{item}</span>)}
+                    </div>
+                  </div>
+                  <div className="aspect-[540/300] overflow-hidden">
+                    <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+                  </div>
+                </div>
+              </motion.div>
+            );
+          }
 
           return (
             <motion.div
@@ -714,14 +758,14 @@ export default function Home() {
         </div>
 
         {/* Hero text content */}
-        <div className="relative z-10 text-center pt-28 md:pt-32 pb-8">
+        <div className="relative z-10 text-center pt-24 md:pt-32 pb-8">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
-            className="font-serif text-[60px] font-normal tracking-tight leading-[1.1] max-w-4xl mx-auto mb-10 px-6"
+            className="font-serif text-[32px] sm:text-[44px] md:text-[60px] font-normal tracking-tight leading-[1.1] max-w-4xl mx-auto mb-6 md:mb-10 px-6"
           >
-            Technology that <br />drives results.
+            Technology that <br className="hidden md:block" />drives results.
           </motion.h1>
 
           <motion.div
@@ -732,7 +776,7 @@ export default function Home() {
           >
             <Link
               href="/contact"
-              className="bg-white hover:bg-neutral-100 text-neutral-900 font-semibold text-sm tracking-widest uppercase px-12 py-5 transition-all hover:scale-[1.02] duration-200"
+              className="bg-white hover:bg-neutral-100 text-neutral-900 font-semibold text-xs md:text-sm tracking-widest uppercase px-8 py-3.5 md:px-12 md:py-5 transition-all hover:scale-[1.02] duration-200"
             >
               Get Started
             </Link>
@@ -747,25 +791,25 @@ export default function Home() {
       </section>
 
       {/* ===== STATS — Dark section directly under hero ===== */}
-      <section className="pt-32 lg:pt-36 pb-20 lg:pb-24 bg-black text-white" style={{ position: 'relative', zIndex: 1 }}>
+      <section className="pt-20 md:pt-32 lg:pt-36 pb-16 lg:pb-24 bg-black text-white" style={{ position: 'relative', zIndex: 1 }}>
         <div className="max-w-5xl mx-auto px-6">
           <AnimateOnScroll>
-            <p className="text-center text-white/50 text-sm font-light mb-14 tracking-wide">
+            <p className="text-center text-white/50 text-xs md:text-sm font-light mb-10 md:mb-14 tracking-wide">
               Join businesses across the globe who trust HARISYNC to power their digital growth.
             </p>
           </AnimateOnScroll>
-          <div className="grid grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-3 gap-4 md:gap-8 text-center">
             <AnimateOnScroll delay={0.1}>
-              <p className="font-sans text-4xl md:text-6xl font-light text-white tracking-tight leading-none"><AnimatedCounter target={20} suffix="+" /></p>
-              <p className="text-[11px] text-neutral-500 uppercase tracking-[0.15em] mt-3 font-medium">Projects Delivered</p>
+              <p className="font-sans text-3xl md:text-6xl font-light text-white tracking-tight leading-none"><AnimatedCounter target={20} suffix="+" /></p>
+              <p className="text-[9px] md:text-[11px] text-neutral-500 uppercase tracking-[0.15em] mt-2 md:mt-3 font-medium">Projects Delivered</p>
             </AnimateOnScroll>
             <AnimateOnScroll delay={0.2}>
-              <p className="font-sans text-4xl md:text-6xl font-light text-white tracking-tight leading-none"><AnimatedCounter target={5} suffix="+" duration={1500} /></p>
-              <p className="text-[11px] text-neutral-500 uppercase tracking-[0.15em] mt-3 font-medium">Countries Served</p>
+              <p className="font-sans text-3xl md:text-6xl font-light text-white tracking-tight leading-none"><AnimatedCounter target={5} suffix="+" duration={1500} /></p>
+              <p className="text-[9px] md:text-[11px] text-neutral-500 uppercase tracking-[0.15em] mt-2 md:mt-3 font-medium">Countries Served</p>
             </AnimateOnScroll>
             <AnimateOnScroll delay={0.3}>
-              <p className="font-sans text-4xl md:text-6xl font-light text-white tracking-tight leading-none"><AnimatedCounter target={100} suffix="%" /></p>
-              <p className="text-[11px] text-neutral-500 uppercase tracking-[0.15em] mt-3 font-medium">Client Satisfaction</p>
+              <p className="font-sans text-3xl md:text-6xl font-light text-white tracking-tight leading-none"><AnimatedCounter target={100} suffix="%" /></p>
+              <p className="text-[9px] md:text-[11px] text-neutral-500 uppercase tracking-[0.15em] mt-2 md:mt-3 font-medium">Client Satisfaction</p>
             </AnimateOnScroll>
           </div>
         </div>

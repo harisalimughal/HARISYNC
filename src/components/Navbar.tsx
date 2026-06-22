@@ -237,31 +237,15 @@ export default function Navbar() {
           >
             <div className="px-6 py-8 flex flex-col gap-5">
               {NAV_ITEMS.map((item) => (
-                <div key={item.label}>
-                  <Link
-                    href={item.href}
-                    className={`text-lg font-medium text-neutral-800 hover:text-neutral-500 transition-colors ${
-                      router.pathname === item.href ? 'text-neutral-900 font-bold' : ''
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                  {item.dropdown && (
-                    <div className="mt-2 ml-4 space-y-1.5">
-                      {item.dropdown.columns.map((col) =>
-                        col.links.map((link) => (
-                          <Link
-                            key={link.label}
-                            href={link.href}
-                            className="block text-sm text-neutral-500 hover:text-neutral-800 transition-colors"
-                          >
-                            {link.label}
-                          </Link>
-                        ))
-                      )}
-                    </div>
-                  )}
-                </div>
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`text-lg font-medium text-neutral-800 hover:text-neutral-500 transition-colors ${
+                    router.pathname === item.href ? 'text-neutral-900 font-bold' : ''
+                  }`}
+                >
+                  {item.label}
+                </Link>
               ))}
               <Link
                 href="/contact"
