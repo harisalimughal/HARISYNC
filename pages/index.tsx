@@ -250,10 +250,56 @@ function AnimatedCounter({ target, suffix = '', duration = 2000 }: { target: num
 
 function ServicesCarousel() {
   const [offset, setOffset] = useState(0);
-  const maxOffset = SERVICES.length - 4;
+  const [isMobile, setIsMobile] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const visibleCards = isMobile ? 1 : 4;
+  const maxOffset = Math.max(0, SERVICES.length - visibleCards);
 
-  const handlePrev = () => setOffset((prev) => Math.max(0, prev - 1));
-  const handleNext = () => setOffset((prev) => Math.min(maxOffset, prev + 1));
+  const handlePrev = () => {
+    if (isMobile) {
+      setOffset((prev) => (prev === 0 ? SERVICES.length - 1 : prev - 1));
+      return;
+    }
+
+    setOffset((prev) => Math.max(0, prev - 1));
+  };
+
+  const handleNext = () => {
+    if (isMobile) {
+      setOffset((prev) => (prev === SERVICES.length - 1 ? 0 : prev + 1));
+      return;
+    }
+
+    setOffset((prev) => Math.min(maxOffset, prev + 1));
+  };
+
+  const handleDotClick = (index: number) => {
+    setOffset(index);
+
+    if (!isMobile || !carouselRef.current) return;
+
+    const targetCard = carouselRef.current.children[index] as HTMLElement | undefined;
+    targetCard?.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+  };
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const mediaQuery = window.matchMedia('(max-width: 1023px)');
+    const updateIsMobile = () => setIsMobile(mediaQuery.matches);
+
+    updateIsMobile();
+    mediaQuery.addEventListener('change', updateIsMobile);
+
+    return () => mediaQuery.removeEventListener('change', updateIsMobile);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile || !carouselRef.current) return;
+
+    const targetCard = carouselRef.current.children[offset] as HTMLElement | undefined;
+    targetCard?.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+  }, [isMobile, offset]);
 
   return (
     <section className="py-20 lg:py-28 bg-[#fafaf9]">
@@ -267,14 +313,15 @@ function ServicesCarousel() {
           </p>
         </AnimateOnScroll>
 
-        <div className="overflow-hidden">
+        <div className="overflow-x-auto overflow-y-hidden pb-2 lg:pb-0 lg:overflow-hidden [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <motion.div
-            className="flex gap-5"
-            animate={{ x: `-${offset * 25.3}%` }}
+            ref={carouselRef}
+            className="flex gap-5 snap-x snap-mandatory lg:snap-none"
+            animate={isMobile ? undefined : { x: `-${offset * 25.3}%` }}
             transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
           >
             {SERVICES.map((service) => (
-              <div key={service.title} className="flex-shrink-0 w-[calc(85vw-20px)] sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)]">
+              <div key={service.title} className="flex-shrink-0 w-[85vw] max-w-[320px] sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)] snap-start lg:snap-none">
                 <Link href="/services" className="group block rounded-2xl overflow-hidden relative" style={{ height: '420px' }}>
                   <img
                     src={service.image}
@@ -286,8 +333,9 @@ function ServicesCarousel() {
                     <h3 className="text-white font-semibold text-lg mb-2">{service.title}</h3>
                     <p className="text-white/70 text-sm leading-relaxed max-w-[90%]">{service.description}</p>
                     <div className="mt-auto flex justify-end">
-                      <span className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center text-white/70 group-hover:border-white group-hover:text-white transition-colors">
-                        <ArrowRight size={16} />
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/30 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.2em] text-white/80 group-hover:border-white group-hover:bg-white/10 group-hover:text-white transition-colors">
+                        View more
+                        <ArrowRight size={13} />
                       </span>
                     </div>
                   </div>
@@ -297,7 +345,25 @@ function ServicesCarousel() {
           </motion.div>
         </div>
 
-        <div className="flex items-center justify-between mt-10">
+        <div className="mt-6 flex justify-center lg:hidden">
+          <div className="flex items-center gap-2">
+            {SERVICES.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                aria-label={`Go to slide ${i + 1}`}
+                onClick={() => handleDotClick(i)}
+                className={`rounded-full transition-all duration-300 ${
+                  i === (isMobile ? offset % SERVICES.length : offset)
+                    ? 'w-5 h-2 bg-neutral-900'
+                    : 'w-2 h-2 bg-neutral-300 hover:bg-neutral-400'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="hidden lg:flex items-center justify-between mt-10">
           <div className="flex items-center gap-2">
             {SERVICES.map((_, i) => (
               <span
