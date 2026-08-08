@@ -15,11 +15,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <main className="overflow-x-clip">
         <Component {...pageProps} />
       </main>
-      <Script
-        src="https://api.answero.urdux.tech/widget.js"
-        data-widget-id="widget_fb6ac8f5e051e7f2396de92506b6c4cc"
-        strategy="afterInteractive"
-      />
+      <script
+  src="https://api.answero.urdux.tech/widget.js"
+  data-widget-id="widget_166d369d3208f5b73f3008c89b44bb95"
+  async>
+</script>
       <Footer />
     </>
   );
